@@ -41,7 +41,27 @@ macro to make the output of all system same and conduct a fair evaluation.
 #define PAGE_SIZE 4096
 
 
+typedef struct Segment {
 
+    size_t size;          
+
+    struct Segment* next; 
+
+} Segment;
+
+typedef struct MeMS {
+
+    Segment* free_list; 
+
+    void* mem_start;   
+
+    size_t unused_memory; 
+
+} MeMS;
+
+
+
+MeMS* mems_system;
 
 
 /*
